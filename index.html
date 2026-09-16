@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استشارات العلاقات الخاصة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBF5F2;
+    --ink: #2E2430;
+    --muted: #6B5B66;
+    --accent: #A34B5E;
+    --accent-soft: #EFD9D3;
+    --line: #DDC7C0;
+    --paper: #FFFCFB;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  h1, h2, .display{
+    font-family: 'Markazi Text', serif;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    position: relative;
+    padding: 100px 0 90px;
+    overflow: hidden;
+  }
+
+  .hero::before{
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: -100px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 70%);
+    z-index: 0;
+  }
+
+  .hero-inner{
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+  }
+
+  .eyebrow{
+    color: var(--accent);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    margin-bottom: 26px;
+  }
+
+  .hero p{
+    color: var(--muted);
+    font-size: 1.15rem;
+    max-width: 46ch;
+    margin-bottom: 40px;
+  }
+
+  .cta{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 16px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: transform .18s ease, box-shadow .18s ease;
+    box-shadow: 0 8px 24px -8px rgba(163, 75, 94, .55);
+  }
+
+  .cta:hover{ transform: translateY(-2px); }
+
+  .cta-ghost{
+    background: transparent;
+    color: var(--accent);
+    box-shadow: none;
+    border: 1.5px solid var(--accent);
+  }
+
+  /* ---------- Notice ---------- */
+
+  .notice{
+    background: var(--accent-soft);
+    border-radius: 18px;
+    padding: 28px 30px;
+    margin-top: 44px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .notice-icon{
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .notice p{
+    margin: 0;
+    color: var(--ink);
+    font-size: .97rem;
+    max-width: 54ch;
+  }
+
+  .cta-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  /* ---------- About ---------- */
+
+  .about{
+    padding: 20px 0 90px;
+    border-top: 1px solid var(--line);
+  }
+
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 56px;
+    padding-top: 70px;
+    align-items: start;
+  }
+
+  .about h2{
+    font-size: 2rem;
+    color: var(--accent);
+  }
+
+  .about-text p{
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 56ch;
+  }
+
+  .about-text strong{
+    color: var(--ink);
+  }
+
+  /* ---------- Packages ---------- */
+
+  .packages{
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head{
+    max-width: 50ch;
+    margin-bottom: 56px;
+  }
+
+  .section-head h2{
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+
+  .section-head p{
+    color: var(--muted);
+  }
+
+  .package-row{
+    display: grid;
+    grid-template-columns: 1.4fr 2fr auto;
+    gap: 28px;
+    align-items: baseline;
+    padding: 34px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .package-row:last-child{
+    border-bottom: 1px solid var(--line);
+  }
+
+  .package-row.featured{
+    position: relative;
+    background: var(--accent-soft);
+    margin: 0 -28px;
+    padding: 34px 28px;
+    border-radius: 18px;
+    border-top: none;
+  }
+
+  .package-row.featured + .package-row{
+    border-top: none;
+  }
+
+  .package-name{
+    font-family: 'Markazi Text', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+
+  .package-tag{
+    display: block;
+    font-family: 'Cairo', sans-serif;
+    font-size: .85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .package-desc{
+    color: var(--muted);
+    font-size: .98rem;
+    max-width: 42ch;
+  }
+
+  .package-price{
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .package-price span{
+    display: block;
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ---------- How it works ---------- */
+
+  .how{
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .steps{
+    display: grid;
+    gap: 30px;
+  }
+
+  .step{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+  }
+
+  .step-num{
+    font-family: 'Markazi Text', serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+  }
+
+  .step h3{
+    font-size: 1.1rem;
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+
+  .step p{
+    color: var(--muted);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  /* ---------- Closing CTA ---------- */
+
+  .closing{
+    padding: 100px 0 120px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+
+  .closing h2{
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    max-width: 22ch;
+    margin: 0 auto 34px;
+  }
+
+  footer{
+    padding: 32px 0 60px;
+    text-align: center;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+
+  @media (max-width: 720px){
+    .about-grid{ grid-template-columns: 1fr; gap: 24px; }
+    .package-row{ grid-template-columns: 1fr; gap: 10px; }
+    .package-row.featured{ margin: 0; }
+    .package-price{ text-align: right; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .cta{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">أهلا بيك 👋</div>
+      <h1>عايز أساعدك تفهم طبيعة علاقتك بشريكك، وتكسر النمط السام والمؤذي لو كان بيحصل معاك</h1>
+      <div class="cta-row">
+        <a class="cta" href="https://wa.me/20XXXXXXXXX" target="_blank" rel="noopener">تواصل على واتساب</a>
+        <a class="cta cta-ghost" href="https://t.me/XXXXXXXXX" target="_blank" rel="noopener">تواصل على تيليجرام</a>
+      </div>
+
+      <div class="notice">
+        <span class="notice-icon">⚠️</span>
+        <p><strong>تنويه:</strong> أنا بقدم دعم ونصيحة بناءً على خبرتي ومحتوايا، ومش هوصفلك أي نوع من أنواع العقاقير أو الأدوية لحالتك. لو حالتك تحتاج تدخل طبي أو نفسي متخصص، هوجهك لحد مناسب. ولو سنك أصغر من 18 سنة، مش هقدر أساعدك للأسف.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="packages wrap" id="packages">
+    <div class="section-head">
+      <h2>الباقات</h2>
+      <p>اختار الباقة اللي تناسب وضعك، أو ابعتلي رسالة لو محتاج تستفسر الأول.</p>
+    </div>
+
+    <div class="package-row">
+      <div>
+        <div class="package-name">استشارة سريعة</div>
+        <span class="package-tag">لموقف أو مشكلة بسيطة</span>
+      </div>
+      <div class="package-desc">20 دقيقة، لو محتاج رأي سريع في موقف محدد بيشغل بالك.</div>
+      <div class="package-price">120 جنيه<span>20 دقيقة</span></div>
+    </div>
+
+    <div class="package-row featured">
+      <div>
+        <div class="package-name">جلسة كاملة</div>
+        <span class="package-tag">الأكثر طلبًا</span>
+      </div>
+      <div class="package-desc">ساعة كاملة نتكلم فيها بعمق عن وضعك وإزاي تتعامل معاه.</div>
+      <div class="package-price">300 جنيه<span>ساعة</span></div>
+    </div>
+
+    <div class="package-row">
+      <div>
+        <div class="package-name">جلسة مزدوجة</div>
+        <span class="package-tag">لمساحة أطول</span>
+      </div>
+      <div class="package-desc">ساعتين، لو الموضوع محتاج وقت أطول تتناقش فيه بارتياح.</div>
+      <div class="package-price">600 جنيه<span>ساعتين</span></div>
+    </div>
+  </section>
+
+  <section class="how wrap">
+    <div class="section-head">
+      <h2>إزاي هتتم الاستشارة</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">١</div>
+        <div>
+          <h3>ابعتلي رسالة</h3>
+          <p>على واتساب أو تيليجرام، حسب اللي يريحك أكتر وحابب تشارك معلوماتك عليه. هتواصل معاك في أقرب وقت.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">٢</div>
+        <div>
+          <h3>نتفق على الباقة والميعاد</h3>
+          <p>هنحدد سوا أنسب باقة وميعاد يريحك.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">٣</div>
+        <div>
+          <h3>الجلسة نفسها</h3>
+          <p>بتتم عن طريق Google Meet، WhatsApp Calls، Telegram Calls، أو Zoom — حسب اللي أنسب ليك.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing wrap">
+    <h2>مستعد تاخد الخطوة الأولى؟</h2>
+    <div class="cta-row" style="justify-content:center">
+      <a class="cta" href="https://wa.me/@d3vidz_ " target="_blank" rel="noopener">كلمني على واتساب</a>
+      <a class="cta cta-ghost" href="https://t.me/d3vidz" target="_blank" rel="noopener">كلمني على تيليجرام</a>
+    </div>
+  </section>
+
+  <footer>
+  </footer>
+
+</body>
+</html>
